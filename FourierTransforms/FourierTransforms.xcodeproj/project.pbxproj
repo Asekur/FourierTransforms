@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840115C2274D46B6002A01BE /* ComplexOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840115C1274D46B6002A01BE /* ComplexOperations.swift */; };
+		847E934D27419D6800DDDCB7 /* SignalHarmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E934C27419D6800DDDCB7 /* SignalHarmonic.swift */; };
+		847E934F27419DCA00DDDCB7 /* SignalPolyharmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E934E27419DCA00DDDCB7 /* SignalPolyharmonic.swift */; };
+		84A8C36E274C3CA6007B378E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8C36D274C3CA6007B378E /* Constants.swift */; };
+		84A8C372274C3EDE007B378E /* Fourier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8C371274C3EDE007B378E /* Fourier.swift */; };
 		84CF4B6927418EB300424DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF4B6827418EB300424DFC /* AppDelegate.swift */; };
 		84CF4B6B27418EB300424DFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF4B6A27418EB300424DFC /* ViewController.swift */; };
 		84CF4B6D27418EB400424DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CF4B6C27418EB400424DFC /* Assets.xcassets */; };
 		84CF4B7027418EB400424DFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84CF4B6E27418EB400424DFC /* Main.storyboard */; };
+		B800EA172B01A6C64B24BD16 /* Pods_FourierTransforms.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6E582C6600D10B4FACD9FD /* Pods_FourierTransforms.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4439DBFA2C98560235F80BEF /* Pods-FourierTransforms.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourierTransforms.release.xcconfig"; path = "Target Support Files/Pods-FourierTransforms/Pods-FourierTransforms.release.xcconfig"; sourceTree = "<group>"; };
+		514D21C5C2ECEE5BE610DD4E /* Pods-FourierTransforms.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FourierTransforms.debug.xcconfig"; path = "Target Support Files/Pods-FourierTransforms/Pods-FourierTransforms.debug.xcconfig"; sourceTree = "<group>"; };
+		840115C1274D46B6002A01BE /* ComplexOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplexOperations.swift; sourceTree = "<group>"; };
+		847E934C27419D6800DDDCB7 /* SignalHarmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalHarmonic.swift; sourceTree = "<group>"; };
+		847E934E27419DCA00DDDCB7 /* SignalPolyharmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalPolyharmonic.swift; sourceTree = "<group>"; };
+		84A8C36D274C3CA6007B378E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84A8C371274C3EDE007B378E /* Fourier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fourier.swift; sourceTree = "<group>"; };
 		84CF4B6527418EB300424DFC /* FourierTransforms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourierTransforms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CF4B6827418EB300424DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84CF4B6A27418EB300424DFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84CF4B6C27418EB400424DFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84CF4B6F27418EB400424DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84CF4B7127418EB400424DFC /* FourierTransforms.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FourierTransforms.entitlements; sourceTree = "<group>"; };
+		CE6E582C6600D10B4FACD9FD /* Pods_FourierTransforms.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FourierTransforms.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +41,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B800EA172B01A6C64B24BD16 /* Pods_FourierTransforms.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4BF7D4659224C3837D3C3ED5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE6E582C6600D10B4FACD9FD /* Pods_FourierTransforms.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		847E934B27419CFC00DDDCB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				847E934C27419D6800DDDCB7 /* SignalHarmonic.swift */,
+				847E934E27419DCA00DDDCB7 /* SignalPolyharmonic.swift */,
+				84A8C36D274C3CA6007B378E /* Constants.swift */,
+				84A8C371274C3EDE007B378E /* Fourier.swift */,
+				840115C1274D46B6002A01BE /* ComplexOperations.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		84CF4B5C27418EB300424DFC = {
 			isa = PBXGroup;
 			children = (
+				847E934B27419CFC00DDDCB7 /* Model */,
 				84CF4B6727418EB300424DFC /* FourierTransforms */,
 				84CF4B6627418EB300424DFC /* Products */,
+				E29C7EA0F7AFD1F521995296 /* Pods */,
+				4BF7D4659224C3837D3C3ED5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +99,15 @@
 			path = FourierTransforms;
 			sourceTree = "<group>";
 		};
+		E29C7EA0F7AFD1F521995296 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				514D21C5C2ECEE5BE610DD4E /* Pods-FourierTransforms.debug.xcconfig */,
+				4439DBFA2C98560235F80BEF /* Pods-FourierTransforms.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84CF4B7427418EB400424DFC /* Build configuration list for PBXNativeTarget "FourierTransforms" */;
 			buildPhases = (
+				05D3CED1DDB6773EBF6117F6 /* [CP] Check Pods Manifest.lock */,
 				84CF4B6127418EB300424DFC /* Sources */,
 				84CF4B6227418EB300424DFC /* Frameworks */,
 				84CF4B6327418EB300424DFC /* Resources */,
+				8743E0E9F7C997F3CE4259EC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +175,59 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05D3CED1DDB6773EBF6117F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FourierTransforms-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8743E0E9F7C997F3CE4259EC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FourierTransforms/Pods-FourierTransforms-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FourierTransforms/Pods-FourierTransforms-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FourierTransforms/Pods-FourierTransforms-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84CF4B6127418EB300424DFC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A8C372274C3EDE007B378E /* Fourier.swift in Sources */,
+				84A8C36E274C3CA6007B378E /* Constants.swift in Sources */,
 				84CF4B6B27418EB300424DFC /* ViewController.swift in Sources */,
+				840115C2274D46B6002A01BE /* ComplexOperations.swift in Sources */,
+				847E934D27419D6800DDDCB7 /* SignalHarmonic.swift in Sources */,
+				847E934F27419DCA00DDDCB7 /* SignalPolyharmonic.swift in Sources */,
 				84CF4B6927418EB300424DFC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +363,7 @@
 		};
 		84CF4B7527418EB400424DFC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 514D21C5C2ECEE5BE610DD4E /* Pods-FourierTransforms.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,6 +389,7 @@
 		};
 		84CF4B7627418EB400424DFC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4439DBFA2C98560235F80BEF /* Pods-FourierTransforms.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

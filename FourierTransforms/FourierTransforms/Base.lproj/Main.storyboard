@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FourierTransforms" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +705,146 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="FourierTransforms" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Gqw-2k-Dst">
+                        <rect key="frame" x="0.0" y="0.0" width="930" height="720"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cac-WG-bhU">
+                                <rect key="frame" x="30" y="607" width="180" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Amplitude" drawsBackground="YES" id="AjD-QN-nzA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cl1-ar-KVM">
+                                <rect key="frame" x="30" y="643" width="180" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Frequency" drawsBackground="YES" id="Hch-77-4ga">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rwd-Hs-HwX">
+                                <rect key="frame" x="28" y="441" width="184" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="rounded" trackingMode="selectOne" id="cgt-jI-V80">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Harmonic" selected="YES"/>
+                                        <segment label="Polyharmonic" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZU9-hO-Fyh">
+                                <rect key="frame" x="23" y="393" width="194" height="32"/>
+                                <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" image="NSFollowLinkFreestandingTemplate" imagePosition="right" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6tn-BQ-RLt">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <color key="contentTintColor" name="AccentColor"/>
+                                <connections>
+                                    <action selector="generateClicked:" target="XfG-lQ-9wD" id="URJ-e6-fby"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MDX-VE-J53">
+                                <rect key="frame" x="28" y="541" width="182" height="18"/>
+                                <buttonCell key="cell" type="check" title="Excluding phases" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="t0h-UJ-Hx4">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-cN-23M">
+                                <rect key="frame" x="28" y="515" width="182" height="18"/>
+                                <buttonCell key="cell" type="check" title="Fast Fourier" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="y17-Ix-10J">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zBn-Rg-WKt">
+                                <rect key="frame" x="30" y="679" width="180" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="m99-bq-28N"/>
+                                    <constraint firstAttribute="height" constant="21" id="oJm-kU-kF5"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Phase" drawsBackground="YES" id="kdQ-0k-nVW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="rQn-kb-NP6" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="470" y="60" width="400" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="6V1-P1-yf9"/>
+                                    <constraint firstAttribute="height" constant="300" id="Ihr-lN-C2p"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="uSR-Ip-hDt" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="30" y="60" width="400" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="05A-Cv-vdF"/>
+                                    <constraint firstAttribute="width" constant="400" id="vFD-QD-pe1"/>
+                                </constraints>
+                            </customView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="ksu-4D-wYb" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="470" y="400" width="400" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Cl1-ar-KVM" firstAttribute="leading" secondItem="zBn-Rg-WKt" secondAttribute="leading" id="1Fq-5v-cGJ"/>
+                            <constraint firstAttribute="trailing" secondItem="ksu-4D-wYb" secondAttribute="trailing" constant="60" id="1Tg-uW-Uke"/>
+                            <constraint firstItem="3nX-cN-23M" firstAttribute="top" secondItem="MDX-VE-J53" secondAttribute="bottom" constant="10" id="2if-va-IjJ"/>
+                            <constraint firstItem="rQn-kb-NP6" firstAttribute="top" secondItem="uSR-Ip-hDt" secondAttribute="top" id="7Xr-V3-3rJ"/>
+                            <constraint firstItem="ZU9-hO-Fyh" firstAttribute="width" secondItem="Rwd-Hs-HwX" secondAttribute="width" id="7p9-8o-oAg"/>
+                            <constraint firstItem="Rwd-Hs-HwX" firstAttribute="trailing" secondItem="cac-WG-bhU" secondAttribute="trailing" id="Gbg-5L-ArL"/>
+                            <constraint firstItem="cac-WG-bhU" firstAttribute="trailing" secondItem="Cl1-ar-KVM" secondAttribute="trailing" id="HEB-Jp-uEa"/>
+                            <constraint firstItem="Rwd-Hs-HwX" firstAttribute="leading" secondItem="cac-WG-bhU" secondAttribute="leading" id="I4o-Ea-AM4"/>
+                            <constraint firstItem="MDX-VE-J53" firstAttribute="trailing" secondItem="cac-WG-bhU" secondAttribute="trailing" id="KR0-kb-GFY"/>
+                            <constraint firstItem="rQn-kb-NP6" firstAttribute="leading" secondItem="uSR-Ip-hDt" secondAttribute="trailing" constant="40" id="LMq-R7-Ych"/>
+                            <constraint firstItem="cac-WG-bhU" firstAttribute="leading" secondItem="Cl1-ar-KVM" secondAttribute="leading" id="LRs-mr-rQB"/>
+                            <constraint firstItem="MDX-VE-J53" firstAttribute="leading" secondItem="cac-WG-bhU" secondAttribute="leading" id="MDy-Rp-grS"/>
+                            <constraint firstItem="uSR-Ip-hDt" firstAttribute="leading" secondItem="ZU9-hO-Fyh" secondAttribute="leading" id="O9m-6j-874"/>
+                            <constraint firstItem="ksu-4D-wYb" firstAttribute="leading" secondItem="rQn-kb-NP6" secondAttribute="leading" id="P3R-aN-bQ7"/>
+                            <constraint firstItem="MDX-VE-J53" firstAttribute="top" secondItem="cac-WG-bhU" secondAttribute="bottom" constant="49" id="RvG-gD-0d3"/>
+                            <constraint firstItem="ksu-4D-wYb" firstAttribute="top" secondItem="Gqw-2k-Dst" secondAttribute="top" constant="20" id="ShO-tH-xSL"/>
+                            <constraint firstItem="ZU9-hO-Fyh" firstAttribute="top" secondItem="Rwd-Hs-HwX" secondAttribute="bottom" constant="22" id="TuP-nO-ht0"/>
+                            <constraint firstItem="uSR-Ip-hDt" firstAttribute="top" secondItem="ZU9-hO-Fyh" secondAttribute="bottom" constant="40" id="Xyr-Lw-BRt"/>
+                            <constraint firstItem="Rwd-Hs-HwX" firstAttribute="top" secondItem="cac-WG-bhU" secondAttribute="bottom" constant="143" id="Y4e-Es-58L"/>
+                            <constraint firstItem="rQn-kb-NP6" firstAttribute="bottom" secondItem="uSR-Ip-hDt" secondAttribute="bottom" id="YDv-77-ubI"/>
+                            <constraint firstItem="Cl1-ar-KVM" firstAttribute="trailing" secondItem="zBn-Rg-WKt" secondAttribute="trailing" id="ZBO-fC-O0P"/>
+                            <constraint firstItem="zBn-Rg-WKt" firstAttribute="top" secondItem="ksu-4D-wYb" secondAttribute="top" id="d5H-GE-gl5"/>
+                            <constraint firstItem="rQn-kb-NP6" firstAttribute="top" secondItem="ksu-4D-wYb" secondAttribute="bottom" constant="40" id="gHs-wy-wJ9"/>
+                            <constraint firstItem="zBn-Rg-WKt" firstAttribute="leading" secondItem="Gqw-2k-Dst" secondAttribute="leading" constant="30" id="iB7-nM-dcQ"/>
+                            <constraint firstItem="cac-WG-bhU" firstAttribute="top" secondItem="Cl1-ar-KVM" secondAttribute="bottom" constant="15" id="j2S-Hb-3IO"/>
+                            <constraint firstItem="Cl1-ar-KVM" firstAttribute="top" secondItem="zBn-Rg-WKt" secondAttribute="bottom" constant="15" id="jEJ-Yg-aWj"/>
+                            <constraint firstItem="ksu-4D-wYb" firstAttribute="trailing" secondItem="rQn-kb-NP6" secondAttribute="trailing" id="nDh-um-s79"/>
+                            <constraint firstItem="ZU9-hO-Fyh" firstAttribute="leading" secondItem="Rwd-Hs-HwX" secondAttribute="leading" id="p8p-Ym-nMq"/>
+                            <constraint firstItem="3nX-cN-23M" firstAttribute="trailing" secondItem="MDX-VE-J53" secondAttribute="trailing" id="t7s-Cm-kZS"/>
+                            <constraint firstItem="3nX-cN-23M" firstAttribute="leading" secondItem="MDX-VE-J53" secondAttribute="leading" id="zUd-Pl-04x"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amplitudeField" destination="cac-WG-bhU" id="fGd-hC-gLm"/>
+                        <outlet property="amplitudesChart" destination="uSR-Ip-hDt" id="fE3-cG-c3M"/>
+                        <outlet property="excludingPhasesCheck" destination="MDX-VE-J53" id="cDG-MY-UQH"/>
+                        <outlet property="fastFourierCheck" destination="3nX-cN-23M" id="BII-7J-VoY"/>
+                        <outlet property="frequencyField" destination="Cl1-ar-KVM" id="oYw-yE-0Sw"/>
+                        <outlet property="phaseField" destination="zBn-Rg-WKt" id="7yo-Ut-sTg"/>
+                        <outlet property="phasesChart" destination="rQn-kb-NP6" id="VnY-fG-14X"/>
+                        <outlet property="signalChart" destination="ksu-4D-wYb" id="9gJ-h6-DZe"/>
+                        <outlet property="signalSegmentControl" destination="Rwd-Hs-HwX" id="Sgf-Cb-VSl"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="504" y="986"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSFollowLinkFreestandingTemplate" width="15" height="15"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
