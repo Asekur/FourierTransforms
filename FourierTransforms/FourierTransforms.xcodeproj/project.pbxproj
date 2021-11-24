@@ -11,7 +11,6 @@
 		847E934D27419D6800DDDCB7 /* SignalHarmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E934C27419D6800DDDCB7 /* SignalHarmonic.swift */; };
 		847E934F27419DCA00DDDCB7 /* SignalPolyharmonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847E934E27419DCA00DDDCB7 /* SignalPolyharmonic.swift */; };
 		84A8C36E274C3CA6007B378E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8C36D274C3CA6007B378E /* Constants.swift */; };
-		84A8C372274C3EDE007B378E /* Fourier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A8C371274C3EDE007B378E /* Fourier.swift */; };
 		84CF4B6927418EB300424DFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF4B6827418EB300424DFC /* AppDelegate.swift */; };
 		84CF4B6B27418EB300424DFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CF4B6A27418EB300424DFC /* ViewController.swift */; };
 		84CF4B6D27418EB400424DFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84CF4B6C27418EB400424DFC /* Assets.xcassets */; };
@@ -26,7 +25,6 @@
 		847E934C27419D6800DDDCB7 /* SignalHarmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalHarmonic.swift; sourceTree = "<group>"; };
 		847E934E27419DCA00DDDCB7 /* SignalPolyharmonic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalPolyharmonic.swift; sourceTree = "<group>"; };
 		84A8C36D274C3CA6007B378E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		84A8C371274C3EDE007B378E /* Fourier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fourier.swift; sourceTree = "<group>"; };
 		84CF4B6527418EB300424DFC /* FourierTransforms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourierTransforms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84CF4B6827418EB300424DFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84CF4B6A27418EB300424DFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +60,6 @@
 				847E934C27419D6800DDDCB7 /* SignalHarmonic.swift */,
 				847E934E27419DCA00DDDCB7 /* SignalPolyharmonic.swift */,
 				84A8C36D274C3CA6007B378E /* Constants.swift */,
-				84A8C371274C3EDE007B378E /* Fourier.swift */,
 				840115C1274D46B6002A01BE /* ComplexOperations.swift */,
 			);
 			path = Model;
@@ -222,7 +219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A8C372274C3EDE007B378E /* Fourier.swift in Sources */,
 				84A8C36E274C3CA6007B378E /* Constants.swift in Sources */,
 				84CF4B6B27418EB300424DFC /* ViewController.swift in Sources */,
 				840115C2274D46B6002A01BE /* ComplexOperations.swift in Sources */,
