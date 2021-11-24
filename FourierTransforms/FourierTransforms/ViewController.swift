@@ -21,6 +21,12 @@ class ViewController: NSViewController {
     @IBOutlet weak var frequencyField: NSTextField!
     @IBOutlet weak var amplitudeField: NSTextField!
     
+    @IBOutlet weak var lowFilterTextField: NSTextField!
+    @IBOutlet weak var upperFilterTextField: NSTextField!
+    @IBOutlet weak var useFilterCheck: NSButton!
+    @IBOutlet weak var filterSegmentControl: NSSegmentedControl!
+    
+    
     private let chartColor = NSColor(calibratedRed: 0.2, green: 0.1, blue: 0.4, alpha: 1).cgColor
     private let chartRestoredColor = NSColor(calibratedRed: 1.0, green: 0.1, blue: 0.1, alpha: 1).cgColor
     
@@ -39,7 +45,12 @@ class ViewController: NSViewController {
     func harmonicGraphics() {
         let cosData = createSignal(amplitude: amplitudeField.doubleValue, frequency: frequencyField.doubleValue, phase: phaseField.doubleValue)
         let data = SignalHarmonic(data: cosData)
-        let ft = fastFourierCheck.state == .on ? data.getFFT(parts: data.getFFTParts(data: cosData)) : data.getDFT()
+        var ft = fastFourierCheck.state == .on ? data.getFFT(parts: data.getFFTParts(data: cosData)) : data.getDFT()
+        
+        //filter ft
+        if useFilterCheck.state == .on {
+            ft = filterSignal(spectr: ft, filter: createFilter())
+        }
         
         let restored = data.restore(amplitudes: ft.0, phases: ft.1)
         self.compareSignals(initValues: cosData, restoredValues: restored)
@@ -51,7 +62,12 @@ class ViewController: NSViewController {
     func polyharmonicGraphics() {
         let polyData = createSignalPolyharmonic()
         let data = SignalPolyharmonic(data: polyData)
-        let ft = fastFourierCheck.state == .on ? data.getFFT(parts: data.getFFTParts(data: polyData)) : data.getDFT()
+        var ft = fastFourierCheck.state == .on ? data.getFFT(parts: data.getFFTParts(data: polyData)) : data.getDFT()
+        
+        //filter ft
+        if useFilterCheck.state == .on {
+            ft = filterSignal(spectr: ft, filter: createFilter())
+        }
         
         let restored = data.restore(amplitudes: ft.0, phases: ft.1, excludingPhases: excludingPhasesCheck.state == .on)
         self.compareSignals(initValues: polyData, restoredValues: restored)
@@ -78,6 +94,19 @@ class ViewController: NSViewController {
         self.phasesChart.clearValues()
     }
     
+    private func createFilter() -> ((Int) -> Bool) {
+        switch filterSegmentControl.indexOfSelectedItem {
+        case 0:
+            return { $0 < self.lowFilterTextField.intValue }
+        case 1:
+            return { $0 > self.lowFilterTextField.intValue }
+        case 2:
+            return { $0 >= self.lowFilterTextField.intValue && $0 <= self.upperFilterTextField.intValue }
+        default:
+            fatalError()
+        }
+    }
+    
     private func createSignal(amplitude: Double, frequency: Double, phase: Double) -> [Double] {
         var data = [Double]()
         for i in 0..<Constants.frameCount {
@@ -102,6 +131,24 @@ class ViewController: NSViewController {
             signal.append(tempPolyharmonic)
         }
         return signal
+    }
+    
+    func filterSignal(spectr: ([Double], [Double]), filter: ((Int) -> Bool)) -> ([Double], [Double]) {
+        let length = spectr.0.count
+        let halfLength = length / 2
+        
+        var amplitudes = [Double]()
+        var phases = [Double]()
+        //let result = Spectrum()
+        for i in 0..<length {
+            var index = i
+            if index > halfLength {
+                index = length - index
+            }
+            amplitudes.append(filter(index) ? spectr.0[index] : 0.0)
+            phases.append(filter(index) ? spectr.1[index] : 0.0)
+        }
+        return (amplitudes, phases)
     }
     
     private func setupUI() {

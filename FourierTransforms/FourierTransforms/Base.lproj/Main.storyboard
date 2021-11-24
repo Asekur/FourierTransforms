@@ -790,6 +790,53 @@
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="ksu-4D-wYb" customClass="LineChartView" customModule="Charts">
                                 <rect key="frame" x="470" y="400" width="400" height="300"/>
                             </customView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wal-2b-DbQ">
+                                <rect key="frame" x="248" y="541" width="182" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Use filters" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Z3n-Gv-nFf">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HPZ-IS-1xz">
+                                <rect key="frame" x="250" y="679" width="180" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FYv-GW-sKx"/>
+                                    <constraint firstAttribute="width" constant="180" id="R4c-TG-TjG"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Phase filter" drawsBackground="YES" id="xIM-qH-Ggg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ShJ-DZ-HpD">
+                                <rect key="frame" x="250" y="607" width="180" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Phase filter" drawsBackground="YES" id="Adc-UX-mPN">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wqx-cT-NH2">
+                                <rect key="frame" x="248" y="643" width="184" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="... to ..." id="LKV-L9-2Sq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oOZ-i6-mko">
+                                <rect key="frame" x="248" y="441" width="184" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" segmentDistribution="fillEqually" style="rounded" trackingMode="selectOne" id="Hb9-mD-TNQ">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="Low" selected="YES"/>
+                                        <segment label="High" tag="1"/>
+                                        <segment label="Band"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Cl1-ar-KVM" firstAttribute="leading" secondItem="zBn-Rg-WKt" secondAttribute="leading" id="1Fq-5v-cGJ"/>
@@ -797,30 +844,43 @@
                             <constraint firstItem="3nX-cN-23M" firstAttribute="top" secondItem="MDX-VE-J53" secondAttribute="bottom" constant="10" id="2if-va-IjJ"/>
                             <constraint firstItem="rQn-kb-NP6" firstAttribute="top" secondItem="uSR-Ip-hDt" secondAttribute="top" id="7Xr-V3-3rJ"/>
                             <constraint firstItem="ZU9-hO-Fyh" firstAttribute="width" secondItem="Rwd-Hs-HwX" secondAttribute="width" id="7p9-8o-oAg"/>
+                            <constraint firstItem="ShJ-DZ-HpD" firstAttribute="leading" secondItem="HPZ-IS-1xz" secondAttribute="leading" id="CZJ-vL-MZR"/>
+                            <constraint firstItem="HPZ-IS-1xz" firstAttribute="leading" secondItem="zBn-Rg-WKt" secondAttribute="trailing" constant="40" id="Eqc-9i-siw"/>
+                            <constraint firstItem="HPZ-IS-1xz" firstAttribute="bottom" secondItem="zBn-Rg-WKt" secondAttribute="bottom" id="FbH-m0-CZU"/>
                             <constraint firstItem="Rwd-Hs-HwX" firstAttribute="trailing" secondItem="cac-WG-bhU" secondAttribute="trailing" id="Gbg-5L-ArL"/>
                             <constraint firstItem="cac-WG-bhU" firstAttribute="trailing" secondItem="Cl1-ar-KVM" secondAttribute="trailing" id="HEB-Jp-uEa"/>
                             <constraint firstItem="Rwd-Hs-HwX" firstAttribute="leading" secondItem="cac-WG-bhU" secondAttribute="leading" id="I4o-Ea-AM4"/>
                             <constraint firstItem="MDX-VE-J53" firstAttribute="trailing" secondItem="cac-WG-bhU" secondAttribute="trailing" id="KR0-kb-GFY"/>
                             <constraint firstItem="rQn-kb-NP6" firstAttribute="leading" secondItem="uSR-Ip-hDt" secondAttribute="trailing" constant="40" id="LMq-R7-Ych"/>
                             <constraint firstItem="cac-WG-bhU" firstAttribute="leading" secondItem="Cl1-ar-KVM" secondAttribute="leading" id="LRs-mr-rQB"/>
+                            <constraint firstItem="oOZ-i6-mko" firstAttribute="trailing" secondItem="ShJ-DZ-HpD" secondAttribute="trailing" id="M3n-bX-kx7"/>
                             <constraint firstItem="MDX-VE-J53" firstAttribute="leading" secondItem="cac-WG-bhU" secondAttribute="leading" id="MDy-Rp-grS"/>
                             <constraint firstItem="uSR-Ip-hDt" firstAttribute="leading" secondItem="ZU9-hO-Fyh" secondAttribute="leading" id="O9m-6j-874"/>
                             <constraint firstItem="ksu-4D-wYb" firstAttribute="leading" secondItem="rQn-kb-NP6" secondAttribute="leading" id="P3R-aN-bQ7"/>
+                            <constraint firstItem="HPZ-IS-1xz" firstAttribute="top" secondItem="zBn-Rg-WKt" secondAttribute="top" id="REZ-N8-05n"/>
                             <constraint firstItem="MDX-VE-J53" firstAttribute="top" secondItem="cac-WG-bhU" secondAttribute="bottom" constant="49" id="RvG-gD-0d3"/>
                             <constraint firstItem="ksu-4D-wYb" firstAttribute="top" secondItem="Gqw-2k-Dst" secondAttribute="top" constant="20" id="ShO-tH-xSL"/>
+                            <constraint firstItem="ShJ-DZ-HpD" firstAttribute="trailing" secondItem="HPZ-IS-1xz" secondAttribute="trailing" id="SqE-nw-5Aq"/>
                             <constraint firstItem="ZU9-hO-Fyh" firstAttribute="top" secondItem="Rwd-Hs-HwX" secondAttribute="bottom" constant="22" id="TuP-nO-ht0"/>
                             <constraint firstItem="uSR-Ip-hDt" firstAttribute="top" secondItem="ZU9-hO-Fyh" secondAttribute="bottom" constant="40" id="Xyr-Lw-BRt"/>
                             <constraint firstItem="Rwd-Hs-HwX" firstAttribute="top" secondItem="cac-WG-bhU" secondAttribute="bottom" constant="143" id="Y4e-Es-58L"/>
                             <constraint firstItem="rQn-kb-NP6" firstAttribute="bottom" secondItem="uSR-Ip-hDt" secondAttribute="bottom" id="YDv-77-ubI"/>
                             <constraint firstItem="Cl1-ar-KVM" firstAttribute="trailing" secondItem="zBn-Rg-WKt" secondAttribute="trailing" id="ZBO-fC-O0P"/>
+                            <constraint firstItem="wqx-cT-NH2" firstAttribute="leading" secondItem="HPZ-IS-1xz" secondAttribute="leading" id="cYe-Iw-SM4"/>
                             <constraint firstItem="zBn-Rg-WKt" firstAttribute="top" secondItem="ksu-4D-wYb" secondAttribute="top" id="d5H-GE-gl5"/>
+                            <constraint firstItem="oOZ-i6-mko" firstAttribute="bottom" secondItem="Rwd-Hs-HwX" secondAttribute="bottom" id="dw4-cG-c1O"/>
                             <constraint firstItem="rQn-kb-NP6" firstAttribute="top" secondItem="ksu-4D-wYb" secondAttribute="bottom" constant="40" id="gHs-wy-wJ9"/>
                             <constraint firstItem="zBn-Rg-WKt" firstAttribute="leading" secondItem="Gqw-2k-Dst" secondAttribute="leading" constant="30" id="iB7-nM-dcQ"/>
                             <constraint firstItem="cac-WG-bhU" firstAttribute="top" secondItem="Cl1-ar-KVM" secondAttribute="bottom" constant="15" id="j2S-Hb-3IO"/>
                             <constraint firstItem="Cl1-ar-KVM" firstAttribute="top" secondItem="zBn-Rg-WKt" secondAttribute="bottom" constant="15" id="jEJ-Yg-aWj"/>
+                            <constraint firstItem="wqx-cT-NH2" firstAttribute="trailing" secondItem="HPZ-IS-1xz" secondAttribute="trailing" id="kYy-5G-KaT"/>
+                            <constraint firstItem="oOZ-i6-mko" firstAttribute="top" secondItem="Rwd-Hs-HwX" secondAttribute="top" id="mb0-Qf-4FD"/>
                             <constraint firstItem="ksu-4D-wYb" firstAttribute="trailing" secondItem="rQn-kb-NP6" secondAttribute="trailing" id="nDh-um-s79"/>
                             <constraint firstItem="ZU9-hO-Fyh" firstAttribute="leading" secondItem="Rwd-Hs-HwX" secondAttribute="leading" id="p8p-Ym-nMq"/>
                             <constraint firstItem="3nX-cN-23M" firstAttribute="trailing" secondItem="MDX-VE-J53" secondAttribute="trailing" id="t7s-Cm-kZS"/>
+                            <constraint firstItem="ShJ-DZ-HpD" firstAttribute="bottom" secondItem="cac-WG-bhU" secondAttribute="bottom" id="uLh-oa-Ubb"/>
+                            <constraint firstItem="oOZ-i6-mko" firstAttribute="leading" secondItem="ShJ-DZ-HpD" secondAttribute="leading" id="wcu-he-kPo"/>
+                            <constraint firstItem="wqx-cT-NH2" firstAttribute="top" secondItem="HPZ-IS-1xz" secondAttribute="bottom" constant="20" id="ysp-XA-XO5"/>
                             <constraint firstItem="3nX-cN-23M" firstAttribute="leading" secondItem="MDX-VE-J53" secondAttribute="leading" id="zUd-Pl-04x"/>
                         </constraints>
                     </view>
@@ -829,11 +889,15 @@
                         <outlet property="amplitudesChart" destination="uSR-Ip-hDt" id="fE3-cG-c3M"/>
                         <outlet property="excludingPhasesCheck" destination="MDX-VE-J53" id="cDG-MY-UQH"/>
                         <outlet property="fastFourierCheck" destination="3nX-cN-23M" id="BII-7J-VoY"/>
+                        <outlet property="filterSegmentControl" destination="oOZ-i6-mko" id="4LT-rR-jbb"/>
                         <outlet property="frequencyField" destination="Cl1-ar-KVM" id="oYw-yE-0Sw"/>
+                        <outlet property="lowFilterTextField" destination="HPZ-IS-1xz" id="PCM-rO-3sa"/>
                         <outlet property="phaseField" destination="zBn-Rg-WKt" id="7yo-Ut-sTg"/>
                         <outlet property="phasesChart" destination="rQn-kb-NP6" id="VnY-fG-14X"/>
                         <outlet property="signalChart" destination="ksu-4D-wYb" id="9gJ-h6-DZe"/>
                         <outlet property="signalSegmentControl" destination="Rwd-Hs-HwX" id="Sgf-Cb-VSl"/>
+                        <outlet property="upperFilterTextField" destination="ShJ-DZ-HpD" id="pSb-Xu-8x2"/>
+                        <outlet property="useFilterCheck" destination="Wal-2b-DbQ" id="Rj1-Hk-CKI"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
